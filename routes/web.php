@@ -15,4 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('wechat', 'WechatController@serve');
+Route::group(['prefix' => 'wechat'], function() {
+    Route::any('/', 'WechatController@serve');
+    Route::group(['namespace' => 'Wechat'], function() {
+        Route::get('user','UserController@index');
+        Route::get('user/{id}','UserController@show');
+    });
+});

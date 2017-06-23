@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Easy WeChat 1
+                    Laravel Easy WeChat message
                 </div>
 
                 <div class="links">
