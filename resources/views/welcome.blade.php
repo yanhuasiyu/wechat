@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel git hook?
+                    Laravel Easy WeChat
                 </div>
 
                 <div class="links">
