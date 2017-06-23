@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
 
-        //
+        Orphans\GitDeploy\GitDeployServiceProvider::class,
 
         /*
          * Application Service Providers...
