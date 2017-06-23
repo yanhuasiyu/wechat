@@ -40,5 +40,6 @@ class WechatController extends Controller
                     break;
             }
         });
+        return $server->serve();
     }
 }
