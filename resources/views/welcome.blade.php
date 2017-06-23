@@ -79,12 +79,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Easy WeChat
+                    Laravel Easy WeChat 1
                 </div>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="https://easywechat.org/" target="_black">Easy Wechat</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
