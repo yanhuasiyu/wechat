@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "76036da3b5b55b91dbe1e1affa01bf9e",
+    "content-hash": "c229309dee2bd0c3f8abbb4ac8391f41",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -741,6 +741,38 @@
                 "php"
             ],
             "time": "2017-03-05T18:23:57+00:00"
+        },
+        {
+            "name": "orphans/git-deploy-laravel",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orphans/git-deploy-laravel.git",
+                "reference": "6f5f392da4418f670a300a69a3433283aad66836"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/orphans/git-deploy-laravel/6f5f392da4418f670a300a69a3433283aad66836.zip",
+                "reference": "6f5f392da4418f670a300a69a3433283aad66836",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5",
+                "illuminate/http": "~5",
+                "illuminate/support": "~5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Orphans\\GitDeploy\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Helps automate the deployment of projects onto servers by utilising Git web hooks.",
+            "time": "2017-04-22T08:54:29+00:00"
         },
         {
             "name": "paragonie/random_compat",
