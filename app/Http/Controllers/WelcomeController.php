@@ -8,7 +8,7 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        \Debugbar::addMessage('index', 'wechat');
+        \Debugbar::addMessage('index', 'wechat 2');
         return view('welcome');
     }
 }
