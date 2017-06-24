@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use DebugBar;
 use EasyWeChat;
-use Symfony\Component\Debug\Debug;
+
 
 class WechatController extends Controller
 {
@@ -15,7 +14,7 @@ class WechatController extends Controller
             switch ($message->MsgType) {
                 case 'event':
                     \DebugBar::addMessage('test',$message->content);
-                    return '收到事件消息';
+                    return '收到事件消息 '.$message->content;
                     break;
                 case 'text':
                     return '收到文字消息';
