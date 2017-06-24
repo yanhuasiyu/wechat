@@ -22,3 +22,7 @@ Route::group(['prefix' => 'wechat'], function() {
         Route::get('user/{id}','UserController@show');
     });
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
