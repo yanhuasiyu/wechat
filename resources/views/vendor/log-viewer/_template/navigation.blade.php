@@ -13,7 +13,11 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="{{ Route::is('log-viewer::dashboard') ? 'active' : '' }}">
+                <li class="{{ Route::is('index') ? 'active' : '' }}">
+                    <a href="{{ route('index') }}">
+                        <i class="fa fa-home"></i> Home
+                    </a>
+                </li>                <li class="{{ Route::is('log-viewer::dashboard') ? 'active' : '' }}">
                     <a href="{{ route('log-viewer::dashboard') }}">
                         <i class="fa fa-dashboard"></i> Dashboard
                     </a>

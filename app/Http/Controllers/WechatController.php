@@ -17,7 +17,7 @@ class WechatController extends Controller
                     return '收到事件消息 ';
                     break;
                 case 'text':
-                    \DebugBar::info($message);
+                    \Debugbar::info($message);
                     return '收到文字消息'.$userapi->get($message->FromUserName)->nickname;
                     break;
                 case 'image':

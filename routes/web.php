@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index')->name('index');
 
 Route::group(['prefix' => 'wechat'], function() {
     Route::any('/', 'WechatController@serve');
