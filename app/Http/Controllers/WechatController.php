@@ -14,11 +14,11 @@ class WechatController extends Controller
         $server->setMessageHandler(function ($message) use ($userapi){
             switch ($message->MsgType) {
                 case 'event':
-                    \DebugBar::info($message);
-                    return '收到事件消息 '.$userapi->get($message->FromUserName)->nickname;
+                    return '收到事件消息 ';
                     break;
                 case 'text':
-                    return '收到文字消息';
+                    \DebugBar::info($message);
+                    return '收到文字消息'.$userapi->get($message->FromUserName)->nickname;
                     break;
                 case 'image':
                     return '收到图片消息';
