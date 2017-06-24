@@ -170,6 +170,8 @@ return [
         Orphans\GitDeploy\GitDeployServiceProvider::class,
         Overtrue\LaravelWechat\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Application Service Providers...
