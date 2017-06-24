@@ -10,11 +10,12 @@ class WechatController extends Controller
     public function serve()
     {
         $server = EasyWeChat::server();
-        $server->setMessageHandler(function ($message) {
+        $userapi = EasyWeChat::user();
+        $server->setMessageHandler(function ($message) use ($userapi){
             switch ($message->MsgType) {
                 case 'event':
                     \DebugBar::info($message);
-                    return '收到事件消息 '.$message->Content;
+                    return '收到事件消息 '.$userapi->get($message->FromUserName)->nickname;
                     break;
                 case 'text':
                     return '收到文字消息';
