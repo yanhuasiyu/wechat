@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
 
 Route::get('/', 'WelcomeController@index')->name('index');
 
@@ -27,3 +28,19 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 
+Route::get('text', function (Request $request) {
+    if ($request->has('q'))
+    {
+        $msg =  $request->q;
+
+        $str = mb_substr($msg, 0, 1, 'utf-8');
+        dump($str) ;
+        if ($str == '买')
+            return mb_substr($msg,1,mb_strlen($msg),'utf-8');
+        else
+            return $msg;
+    }
+    else
+        return 'no message.';
+
+});

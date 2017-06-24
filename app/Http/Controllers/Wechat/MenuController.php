@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers\Wechat;
 
+use EasyWeChat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use EasyWeChat\Foundation\Application;
 
 class MenuController extends Controller
 {
     protected $menu;
 
-    /**
-     * @var Application
-     */
-
-    public function __construct(Application $wechat)
+    public function __construct()
     {
-        $this->menu = $wechat->menu;
+        $this->menu = EasyWeChat::menu();
     }
 
     /**
@@ -26,8 +22,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = $this->menu->all();
-        dump($menus);
+        $menus = $menus->all();
         return $menus;
     }
 
@@ -106,8 +101,8 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -118,7 +113,7 @@ class MenuController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
