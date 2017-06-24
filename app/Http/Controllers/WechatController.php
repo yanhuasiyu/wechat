@@ -13,8 +13,8 @@ class WechatController extends Controller
         $server->setMessageHandler(function ($message) {
             switch ($message->MsgType) {
                 case 'event':
-                    \DebugBar::addMessage('test',$message->content);
-                    return '收到事件消息 '.$message->content;
+                    \DebugBar::info($message);
+                    return '收到事件消息 '.$message->Content;
                     break;
                 case 'text':
                     return '收到文字消息';
