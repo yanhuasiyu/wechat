@@ -13,11 +13,11 @@
 
 Route::get('/', 'WelcomeController@index')->name('index');
 
-Route::group(['prefix' => 'wechat'], function() {
+Route::group(['prefix' => 'wechat'], function () {
     Route::any('/', 'WechatController@serve');
-    Route::group(['namespace' => 'Wechat'], function() {
-        Route::get('user','UserController@index');
-        Route::get('user/{id}','UserController@show');
+    Route::group(['namespace' => 'Wechat', 'middleware' => 'auth'], function () {
+        Route::get('user', 'UserController@index');
+        Route::get('user/{id}', 'UserController@show');
     });
 });
 
