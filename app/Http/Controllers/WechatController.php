@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use EasyWeChat;
+use EasyWeChat\Message\News;
 
 
 class WechatController extends Controller
@@ -11,7 +12,11 @@ class WechatController extends Controller
     {
         $server = EasyWeChat::server();
         $userapi = EasyWeChat::user();
-        $server->setMessageHandler(function ($message) use ($userapi){
+        $server->setMessageHandler(/**
+         * @param $message
+         * @return string
+         */
+            function ($message) use ($userapi){
             switch ($message->MsgType) {
                 case 'event':
                     return '收到事件消息 ';
@@ -21,7 +26,13 @@ class WechatController extends Controller
                     return '收到文字消息'.$userapi->get($message->FromUserName)->nickname;
                     break;
                 case 'image':
-                    return '收到图片消息';
+                    $new = new News(['titlle'=>'图文标题',
+                        'description'=>'文章描述就在这里，看看吧',
+                        'url' => 'http://wechat.gczycn.com',
+                        'imgage' => 'https://www.yousails.com/'
+                    ]);
+
+                    return $new;
                     break;
                 case 'voice':
                     return '收到语音消息';
@@ -42,7 +53,7 @@ class WechatController extends Controller
             }
             // ...
         });
-        
+
         return $server->serve();
     }
 }
