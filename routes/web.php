@@ -18,6 +18,7 @@ Route::group(['prefix' => 'wechat'], function () {
     Route::group(['namespace' => 'Wechat', 'middleware' => 'auth'], function () {
         Route::get('user', 'UserController@index');
         Route::get('user/{id}', 'UserController@show');
+        Route::resource('menu', 'MenuController');
     });
 });
 
