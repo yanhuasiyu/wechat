@@ -26,13 +26,12 @@ class WechatController extends Controller
                     return '收到文字消息'.$userapi->get($message->FromUserName)->nickname;
                     break;
                 case 'image':
-                    $new = new News(['titlle'=>'图文标题',
+                    $news = new News(['titlle'=>'图文标题',
                         'description'=>'文章描述就在这里，看看吧',
                         'url' => 'http://wechat.gczycn.com',
-                        'imgage' => 'https://www.yousails.com/'
+                        'imgage' => $message->PicUrl,
                     ]);
-
-                    return $new;
+                    return $news;
                     break;
                 case 'voice':
                     return '收到语音消息';
