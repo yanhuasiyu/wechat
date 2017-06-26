@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers\Wechat;
 
-use EasyWeChat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use EasyWeChat\Foundation\Application;
 
 class MenuController extends Controller
 {
     protected $menu;
 
-    public function __construct()
+    /**
+     * @var Application
+     */
+
+    public function __construct(Application $wechat)
     {
-        $this->menu = EasyWeChat::menu();
+        $this->menu = $wechat->menu;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +26,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = $menus->all();
+        $menus = $this->menu->all();
+        dump($menus);
         return $menus;
     }
 
@@ -32,13 +38,42 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        $buttons = [
+            [
+                "type" => "click",
+                "name" => "今日歌曲",
+                "key" => "V1001_TODAY_MUSIC"
+            ],
+            [
+                "name" => "菜单",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "搜索",
+                        "url" => "http://www.soso.com/"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "视频",
+                        "url" => "http://v.qq.com/"
+                    ],
+                    [
+                        "type" => "click",
+                        "name" => "赞一下我们",
+                        "key" => "V1001_GOOD"
+                    ],
+                ],
+            ],
+        ];
+        $this->menu->add($buttons);
+
+        return redirect('wechat/menu', 200);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -49,7 +84,7 @@ class MenuController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -60,7 +95,7 @@ class MenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -71,8 +106,8 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -83,7 +118,7 @@ class MenuController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
