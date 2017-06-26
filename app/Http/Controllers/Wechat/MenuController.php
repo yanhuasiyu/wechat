@@ -9,13 +9,14 @@ use EasyWeChat\Foundation\Application;
 class MenuController extends Controller
 {
     protected $menu;
+
     /**
      * @var Application
      */
 
-    public function __construct(Application  wechat)
+    public function __construct(Application $wechat)
     {
-        $this->menu = wechat->menu();
+        $this->menu = $wechat->menu;
     }
 
     /**
@@ -25,7 +26,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = $this->$menu->all();
+        $menus = $this->menu->all();
+
         return $menus;
     }
 
