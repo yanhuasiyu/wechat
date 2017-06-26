@@ -27,7 +27,7 @@ class MenuController extends Controller
     public function index()
     {
         $menus = $this->menu->all();
-
+        dump($menus);
         return $menus;
     }
 
