@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers\Wechat;
 
-use EasyWeChat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use EasyWeChat\Foundation\Application;
 
 class MenuController extends Controller
 {
     protected $menu;
+    /**
+     * @var Application
+     */
 
-    public function __construct()
+    public function __construct(Application  wechat)
     {
-        $this->menu = EasyWeChat::menu();
+        $this->menu = wechat->menu();
     }
 
     /**
