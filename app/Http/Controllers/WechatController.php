@@ -60,7 +60,6 @@ class WechatController extends Controller
                         return '收到其它消息';
                         break;
                 }
-                // ...
             });
 
         return $server->serve();
