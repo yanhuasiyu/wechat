@@ -20,13 +20,13 @@ class WechatController extends Controller
          * @return string
          */
             function ($message) use ($userapi) {
-                $this->msg = new WechatMessage($message);
+                $this->msg = new WechatMessage();
                 switch ($message->MsgType) {
                     case 'event':
                         return $this->msg->event();
                         break;
                     case 'text':
-//                        echo $this->msg->text();
+                        echo $this->msg->text();
                         return '';
                         break;
                     case 'image':

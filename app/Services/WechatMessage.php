@@ -11,21 +11,21 @@ namespace App\Services;
 
 class WechatMessage
 {
-    protected $message;
-
-    public function __construct($message)
-    {
-        $this->message = $message;
-    }
+//    protected $message;
+//
+//    public function __construct($message)
+//    {
+//        $this->message = $message;
+//    }
 
     public function event()
     {
         return '收到事件消息';
     }
 
-    public function text()
+    public function text($message)
     {
-        return 'text message';
+        return 'text message: '.$message->content;
         if (mb_substr($this->message->content, 0, 1, 'utf-8') == '买')
             return '买东西';
         else
