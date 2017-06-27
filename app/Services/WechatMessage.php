@@ -15,16 +15,19 @@ class WechatMessage
 
     public function __construct($message)
     {
-        $this->message=$message;
+        $this->message = $message;
     }
 
     public function event()
     {
-        return  '收到事件消息';
+        return '收到事件消息';
     }
 
     public function text()
     {
-        return  '文本消息';
+        if (mb_substr($this->message->content, 0, 1, 'utf-8') == '买')
+            return '买东西';
+        else
+            return '文本消息';
     }
 }
