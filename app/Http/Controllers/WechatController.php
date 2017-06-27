@@ -26,8 +26,8 @@ class WechatController extends Controller
                         return $this->msg->event();
                         break;
                     case 'text':
-                        echo $this->msg->text();
-                        return '';
+//                        echo $this->msg->text();
+                        return 'text';
                         break;
                     case 'image':
                         $news = new News([
