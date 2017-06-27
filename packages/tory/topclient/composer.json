@@ -1,0 +1,19 @@
+{
+    "name": "tory/topclient",
+    "description": "taobao top client",
+    "authors": [
+        {
+            "name": "yanhuasiyu",
+            "email": "20984557@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tory\\TopClient\\": "src/",
+            "TopClient\\": "src/top/"
+        },
+        "files": [
+            "src/TopSdk.php"
+        ]
+    }
+}
