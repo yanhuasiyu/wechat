@@ -16,7 +16,6 @@ class WechatMessage
     public function __construct($message)
     {
         $this->message = $message;
-        dd($this->message);
     }
 
     public function event()
