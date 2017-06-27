@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\WechatMessage;
 use EasyWeChat;
 use EasyWeChat\Message\News;
 
 
 class WechatController extends Controller
 {
+    protected $msg
     public function serve()
     {
         $server = EasyWeChat::server();
@@ -18,13 +20,13 @@ class WechatController extends Controller
          * @return string
          */
             function ($message) use ($userapi) {
+                $this->msg = new WechatMessage($message);
                 switch ($message->MsgType) {
                     case 'event':
-                        return '收到事件消息 ';
+                        return $this->msg->event();
                         break;
                     case 'text':
-                        \Debugbar::info($message);
-                        return '收到文字消息' . $userapi->get($message->FromUserName)->nickname;
+                        return $this->msg->text() . $userapi->get($message->FromUserName)->nickname;
                         break;
                     case 'image':
                         $news = new News([
