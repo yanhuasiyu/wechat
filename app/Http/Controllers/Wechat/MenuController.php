@@ -2,26 +2,16 @@
 
 namespace App\Http\Controllers\Wechat;
 
-<<<<<<< HEAD
-use EasyWeChat;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-=======
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use EasyWeChat\Foundation\Application;
->>>>>>> dev
+
 
 class MenuController extends Controller
 {
     protected $menu;
 
-<<<<<<< HEAD
-    public function __construct()
-    {
-        $this->menu = EasyWeChat::menu();
-    }
-=======
     /**
      * @var Application
      */
@@ -31,7 +21,6 @@ class MenuController extends Controller
         $this->menu = $wechat->menu;
     }
 
->>>>>>> dev
     /**
      * Display a listing of the resource.
      *
@@ -39,12 +28,10 @@ class MenuController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        $menus = $menus->all();
-=======
+
         $menus = $this->menu->all();
         dump($menus);
->>>>>>> dev
+
         return $menus;
     }
 
@@ -55,9 +42,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-        //
-=======
+
         $buttons = [
             [
                 "type" => "click",
@@ -88,17 +73,13 @@ class MenuController extends Controller
         $this->menu->add($buttons);
 
         return redirect('wechat/menu', 200);
->>>>>>> dev
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-<<<<<<< HEAD
-     * @param  \Illuminate\Http\Request  $request
-=======
      * @param  \Illuminate\Http\Request $request
->>>>>>> dev
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -109,11 +90,7 @@ class MenuController extends Controller
     /**
      * Display the specified resource.
      *
-<<<<<<< HEAD
-     * @param  int  $id
-=======
      * @param  int $id
->>>>>>> dev
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -124,11 +101,7 @@ class MenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-<<<<<<< HEAD
-     * @param  int  $id
-=======
      * @param  int $id
->>>>>>> dev
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -139,13 +112,8 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      *
-<<<<<<< HEAD
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-=======
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
->>>>>>> dev
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -156,11 +124,7 @@ class MenuController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-<<<<<<< HEAD
-     * @param  int  $id
-=======
      * @param  int $id
->>>>>>> dev
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
