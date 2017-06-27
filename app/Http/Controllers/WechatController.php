@@ -26,7 +26,7 @@ class WechatController extends Controller
                         return $this->msg->event();
                         break;
                     case 'text':
-                        return $this->msg->text() . $userapi->get($message->FromUserName)->nickname;
+                        return $this->msg->text();
                         break;
                     case 'image':
                         $news = new News([
