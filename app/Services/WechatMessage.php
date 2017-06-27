@@ -25,7 +25,7 @@ class WechatMessage
 
     public function text($message)
     {
-        return 'text message: '.$message->content;
+        return 'text message: '.$message;
         if (mb_substr($this->message->content, 0, 1, 'utf-8') == '买')
             return '买东西';
         else
