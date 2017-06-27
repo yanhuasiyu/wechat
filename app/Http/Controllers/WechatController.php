@@ -9,7 +9,7 @@ use EasyWeChat\Message\News;
 
 class WechatController extends Controller
 {
-    protected $msg
+    protected $msg;
     public function serve()
     {
         $server = EasyWeChat::server();
