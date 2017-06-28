@@ -26,8 +26,8 @@ class WechatController extends Controller
                         return $this->msg->event();
                         break;
                     case 'text':
-                        \Log::info('text: ', $message->content);
-                        return $this->msg->text($message->content);
+                        \Log::info('text: ', $message->Content);
+                        return $this->msg->text($message->Content);
                         return 'text';
                         break;
                     case 'image':
