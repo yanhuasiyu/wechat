@@ -25,7 +25,7 @@ class WechatMessage
 
     public function text($message)
     {
-        \Log::info('消息',$message);
+        \Log::info('消息',[$message]);
         return 'text message: '.$message;
         if (mb_substr($message, 0, 1, 'utf-8') == '买')
             return '买东西';
