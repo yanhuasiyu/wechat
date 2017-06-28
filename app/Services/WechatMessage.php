@@ -8,6 +8,7 @@
 
 namespace App\Services;
 
+use EasyWeChat\Message\News;
 
 class WechatMessage
 {
