@@ -26,6 +26,7 @@ class WechatController extends Controller
                         return $this->msg->event();
                         break;
                     case 'text':
+                        \Log::addMessage('text: ', $message->content);
                         return $this->msg->text($message->content);
                         return 'text';
                         break;
