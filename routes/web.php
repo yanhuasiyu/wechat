@@ -13,6 +13,7 @@
 use Illuminate\Http\Request;
 
 Route::get('/', 'WelcomeController@index')->name('index');
+Route::get('tbk', 'WelcomeController@test');
 
 Route::group(['prefix' => 'wechat'], function () {
     Route::any('/', 'WechatController@serve');
@@ -44,3 +45,4 @@ Route::get('text', function (Request $request) {
         return 'no message.';
 
 });
+
