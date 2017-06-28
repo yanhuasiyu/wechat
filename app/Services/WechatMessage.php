@@ -9,6 +9,8 @@
 namespace App\Services;
 
 use EasyWeChat\Message\News;
+use Tory\TopClient\TopClientManager;
+
 
 class WechatMessage
 {
