@@ -29,6 +29,7 @@ class WechatMessage
         $str = mb_substr($message, 0, 1, 'utf-8');
         dump($str) ;
         if ($str == '买')
+        {
             $news = new News([
                 'title' => '图文标题',
                 'description' => '文章描述就在这里，看看吧',
@@ -41,7 +42,9 @@ class WechatMessage
                 'url' => 'http://www.gczycn.com',
                 'image' => 'http://p4.qhimg.com/dmfd/__90/t01ae059c4f323275eb.jpg?size=640x960',
             ]);
-            return [$news,$news2];
+            return [$news, $news2];
+        }
+
 //            return mb_substr($message,1,mb_strlen($message),'utf-8');
         else
             return $message;
