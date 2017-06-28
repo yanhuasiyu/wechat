@@ -27,3 +27,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 
+Route::get('text', function () {
+    $str = mb_substr('1买的规定所发生的', 0, 1, 'utf-8');
+    if ($str == '买')
+        return 'ok';
+    else
+        return '不买了';
+});
+
