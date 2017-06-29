@@ -28,13 +28,12 @@ class WechatMessage
     public function text($message)
     {
         $str = mb_substr($message, 0, 1, 'utf-8');
-        if ($str == '买')
-        {
+        if ($str == '买') {
             $tbks = new TopClientManager();
-            $data = $tbks->search(mb_substr($message,1,mb_strlen($message),'utf-8'));
-            $d;
+            $data = $tbks->search(mb_substr($message, 1, mb_strlen($message), 'utf-8'));
+            $d = [];
             foreach ($data as $key => $row) {
-                $d[] = [
+                $d[$key] = [
                     new News([
                         'title' => $row->title,
                         'url' => $row->item_url,
@@ -43,8 +42,7 @@ class WechatMessage
                 ];
             }
             return $d;
-        }
-        else
+        } else
             return $message;
     }
 
