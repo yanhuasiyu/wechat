@@ -33,13 +33,13 @@ class WechatMessage
             $data = $tbks->search(mb_substr($message, 1, mb_strlen($message), 'utf-8'));
             $d = [];
             foreach ($data as $key => $row) {
-                $d[$key] = [
+                $d[$key] =
                     new News([
                         'title' => $row->title,
+                        'description' => '...',
                         'url' => $row->item_url,
-                        'image' => $row->pict_url
-                    ])
-                ];
+                        'image' => $row->pict_url,
+                    ]);
             }
             return $d;
         } else
