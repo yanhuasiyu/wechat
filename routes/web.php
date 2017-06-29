@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 
 Route::get('/', 'WelcomeController@index')->name('index');
 
+Route::get('tbk', 'WelcomeController@test');
+
 Route::group(['prefix' => 'wechat'], function () {
     Route::any('/', 'WechatController@serve');
     Route::group(['namespace' => 'Wechat', 'middleware' => 'auth'], function () {

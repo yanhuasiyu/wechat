@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Wechat;
 
-
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use EasyWeChat\Foundation\Application;
@@ -12,7 +10,6 @@ use EasyWeChat\Foundation\Application;
 class MenuController extends Controller
 {
     protected $menu;
-
 
     /**
      * @var Application
@@ -23,7 +20,6 @@ class MenuController extends Controller
         $this->menu = $wechat->menu;
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +29,6 @@ class MenuController extends Controller
     {
         $menus = $this->menu->all();
         dump($menus);
-
         return $menus;
     }
 
@@ -74,13 +69,12 @@ class MenuController extends Controller
         $this->menu->add($buttons);
 
         return redirect('wechat/menu', 200);
-
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -102,7 +96,7 @@ class MenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)

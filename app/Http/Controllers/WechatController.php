@@ -14,6 +14,7 @@ class WechatController extends Controller
     {
         $server = EasyWeChat::server();
         $userapi = EasyWeChat::user();
+
         $server->setMessageHandler(
         /**
          * @param $message
@@ -62,7 +63,6 @@ class WechatController extends Controller
                         break;
                 }
             });
-
         return $server->serve();
     }
 }
